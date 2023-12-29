@@ -31,7 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'qtb_app.apps.QtbAppConfig',
+    'django_truncate',
+    'django_extensions',
+    'qtb_app',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

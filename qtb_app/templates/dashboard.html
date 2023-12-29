@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="group-frame">
+
+    <div class="frame-1">
+        <div class="table-title">
+            <p>Current Teams</p>
+        </div>
+        <div class="table-container scrollable">
+            <table class="team-table">
+                <thead>
+                    <tr>
+                        <th>Teams</th>
+                        <th>Team Leader</th>
+                        <th>Task</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for team in teams %}
+                    <tr>
+                        <td>{{ team.id }}</td>
+                        <td>{{ team.team_leader.name }}</td>
+                        <td>{{ team.task.name }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="frame-2">
+    <div class="table-title">
+        <p>Reports Today</p>
+    </div>
+    <hr />
+    <div class="table2-container scrollable">
+        <table class="reports-table">
+            {% for report in reports %}
+            <tr class='unread'>
+                <td><i class="fa-regular fa-envelope"></i></td>
+                <td class="desc">{{ report.content }}</td>
+                <td>Team {{ report.team.id }}</td>
+                <td>{{ report.time }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+</div>
+<div class="group-frame">
+
+    <div class="frame-1">
+        <div class="table-title">
+            <p>Growth Chart</p>
+        </div>
+        <hr />
+        <div class="graph-container">
+            <canvas id="performanceChart" width="auto" height="auto"></canvas>
+            <script src="{% static '/js/script.js'%}"></script>
+        </div>
+    </div>
+
+    <div class="frame-2">
+        <div class="table-title">
+            <p>Current Rankings</p>
+        </div>
+        <div class="table3-container scrollable">
+            <table class="team-table">
+                <thead>
+                    <tr>
+                        <th>Team</th>
+                        <th>Rating</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="no-hover">
+                {% for rank in leaderboards %}
+                    <tr>
+                        <td style="width: 105px;">{{ rank.team.id }}</td>
+                        <td>{{ rank.team.performance_rating }}</td>
+                        <td></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}

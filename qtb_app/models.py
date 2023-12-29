@@ -33,10 +33,7 @@ class Team(BaseModel):
     team_leader = models.ForeignKey(Employee, null=True, blank=True, on_delete=models.CASCADE)
     performance_rating = models.DecimalField(max_digits=5, decimal_places=2)
     compatibility_rating = models.DecimalField(max_digits=5, decimal_places=2)
-    task = models.ForeignKey(Task, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f"{self.team_leader.name}'s Team"
+    task = models.ForeignKey(Task, null=True, blank=True, on_delete=models.CASCADE)
 
 
 class Report(BaseModel):
