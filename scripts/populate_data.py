@@ -60,7 +60,8 @@ for team in teams:
             name=fake.name(),
             age=random.randint(20, 60),
             email=fake.email(),
-            team_id=team
+            team_id=team,
+            phone_num=fake.phone_number()
         )
         employees.append(member)
 

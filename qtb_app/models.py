@@ -1,5 +1,5 @@
 from django.db import models
-
+from phone_field import PhoneField
 
 # Create your models here.
 class BaseModel(models.Model):
@@ -15,6 +15,7 @@ class Employee(BaseModel):
     name = models.CharField(max_length=100)
     age = models.IntegerField()
     email = models.EmailField(max_length=100)
+    phone_num = PhoneField(blank=True)
     team_id = models.ForeignKey('Team', null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):

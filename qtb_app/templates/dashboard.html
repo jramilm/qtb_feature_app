@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="group-frame">
-
+<!-- TEAM BOARD -->
     <div class="frame-1">
         <div class="table-title">
             <p>Current Teams</p>
@@ -29,29 +29,29 @@
             </table>
         </div>
     </div>
-
+<!-- REPORTS BOARD -->
     <div class="frame-2">
-    <div class="table-title">
-        <p>Reports Today</p>
+        <div class="table-title">
+            <p>Reports Today</p>
+        </div>
+        <hr />
+        <div class="table2-container scrollable">
+            <table class="reports-table">
+                {% for report in reports %}
+                <tr class='unread'>
+                    <td><i class="fa-regular fa-envelope"></i></td>
+                    <td class="desc">{{ report.content }}</td>
+                    <td>Team {{ report.team.id }}</td>
+                    <td>{{ report.time }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
     </div>
-    <hr />
-    <div class="table2-container scrollable">
-        <table class="reports-table">
-            {% for report in reports %}
-            <tr class='unread'>
-                <td><i class="fa-regular fa-envelope"></i></td>
-                <td class="desc">{{ report.content }}</td>
-                <td>Team {{ report.team.id }}</td>
-                <td>{{ report.time }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-    </div>
-</div>
 
 </div>
 <div class="group-frame">
-
+<!-- GRAPH BOARD -->
     <div class="frame-1">
         <div class="table-title">
             <p>Growth Chart</p>
@@ -59,10 +59,9 @@
         <hr />
         <div class="graph-container">
             <canvas id="performanceChart" width="auto" height="auto"></canvas>
-            <script src="{% static '/js/script.js'%}"></script>
         </div>
     </div>
-
+<!-- LEADERBOARD -->
     <div class="frame-2">
         <div class="table-title">
             <p>Current Rankings</p>

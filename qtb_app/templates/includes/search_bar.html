@@ -1,0 +1,18 @@
+
+<form action="" class="search-form" id="search-form">
+    <input type="search" name="search" placeholder="Search" class="search-container"><i class="fa-solid fa-magnifying-glass" id="submit-icon"></i>
+</form>
+
+<script>
+    function submitForm(event) {
+        event.preventDefault();
+
+        document.getElementById('search-form').submit();
+    }
+
+    const form = document.getElementById('search-form');
+    const submitIcon = document.getElementById('submit-icon');
+
+    // Add a mousedown event listener to the icon
+    submitIcon.addEventListener('mousedown', submitForm);
+</script>

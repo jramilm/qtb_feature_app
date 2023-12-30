@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="button-container">
+        <!-- Search Bar -->
+        <form action="{% url 'teams-view' %}" class="search-form" id="search-form" method="GET">
+            <input type="search" name="search" placeholder="Search" class="search-container"><i class="fa-solid fa-magnifying-glass" id="submit-icon"></i>
+        </form>
+
+        <!-- Refresh Button -->
+        <form action="#" class="refresh-form" method="GET">
+            <button type="submit" class="refresh-button"><i class="fa-solid fa-rotate-right fa-xl"></i></button>
+        </form>
+    </div>
+
+    {% for data in teams %}
+        <button class="team-crumb collapsible" onclick="changeChevron(this)">
+            <p class="mediumtxt">Team {{ data.team.id }}<i class="fa-chevron-down fa-solid fa-2xs"></i></p>
+            <p class="smalltxt gray">TL: {{ data.team_leader.name }}</p>
+            <p class="smalltxt gray">Members: {{ data.members|length|add:1 }}</p>
+            <p class="smalltxt gray">Compatibility: {{ data.team.compatibility_rating }}</p>
+        </button>
+        <div class="crumb-overlay scrollable">
+            <table class="table-overlay">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ data.team_leader.id }}</td>
+                        <td>{{ data.team_leader.name }}</td>
+                        <td>{{ data.team_leader.age }}</td>
+                        <td>{{ data.team_leader.email }}</td>
+                        <td>{{ data.team_leader.phone_num }}</td>
+                    </tr>
+                    {% for member in data.members %}
+                        <tr>
+                            <td>{{ member.id }}</td>
+                            <td>{{ member.name }}</td>
+                            <td>{{ member.age }}</td>
+                            <td>{{ member.email }}</td>
+                            <td>{{ member.phone_num }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endfor %}
+
+{% endblock %}

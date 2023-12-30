@@ -1,0 +1,52 @@
+:root {
+    --ocean: #878EA1;
+    --gray: #A9A9A9;
+    --soft_gray: #CBC9C9;
+    --light_green: #86FF99;
+    --light_shadow: rgb(0, 0, 0, 25%);
+    --active_color: #D9D9D9;
+    --dark_gray: #787878;
+    --white_overlay: #F5EEEE;
+}
+
+* {
+    font-family: 'DM Sans', sans-serif;
+}
+
+body {
+    background-color: var(--soft_gray)
+}
+
+.search-container {
+    border-radius: 14px;
+    box-shadow: 0 4px 4px 0 var(--light_shadow);
+    background-color: white;
+    text-decoration: none;
+    padding-left: 16px;
+    font-size: 17px;
+    outline: none;
+    border: none;
+}
+
+input+i {
+    position: relative;
+    right: 28px;
+    cursor: pointer;
+}
+
+input+i:hover {
+    color: var(--dark_gray);
+}
+
+input[type='search'] {
+    height: 51px;
+    width: 109px;
+    padding-right: 37px;
+    transition: width 0.2s ease-in-out;
+    overflow: hidden;
+}
+
+input[type='search']:focus {
+    width: 259px;
+    outline: none;
+}

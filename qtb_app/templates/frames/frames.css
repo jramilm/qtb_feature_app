@@ -1,0 +1,152 @@
+:root {
+    --ocean: #878EA1;
+    --gray: #A9A9A9;
+    --soft_gray: #CBC9C9;
+    --light_green: #86FF99;
+    --light_shadow: rgb(0, 0, 0, 25%);
+    --active_color: #D9D9D9;
+}
+
+* {
+    font-family: 'DM Sans', sans-serif;
+}
+
+body {
+    background-color: var(--soft_gray);
+    width: 1440px;
+    height: 1024px;
+}
+
+table {
+    border-collapse: collapse;
+    overflow: scroll;
+}
+
+.frame-1 {
+    width: 667px;
+    height: 420px;
+    border-radius: 14px;
+    background-color: white;
+    box-shadow: 0 4px 4px 0 var(--light_shadow);
+    position: relative;
+}
+
+.scrollable {
+    position: relative;
+    overflow: scroll;
+}
+
+.table-container {
+    width: 667px;
+    height: 358px;
+    border-radius: 0 0 14px 14px;
+}
+
+.table-title {
+    font-weight: 700;
+    text-align: left;
+    height: 62px;
+}
+
+.team-table {
+    width: 100%;
+    text-align: left;
+}
+
+.table-title > p {
+    position: relative;
+    top: 30%;
+    left: 15px;
+    font-size: 27px;
+}
+
+thead {
+    height: 41px;
+    background-color: #B7B7B7;
+    position: sticky;
+    top: 0;
+}
+
+th,
+td {
+    padding-left: 13px;
+    text-align: left;
+    font-size: 21px;
+}
+
+tbody tr {
+    border-bottom: 4px solid white;
+    border-top: 4px solid white;
+}
+
+.team-table tbody tr:nth-child(even) {
+    background-color: var(--active_color);
+}
+
+tbody tr:hover {
+    background-color: var(--gray) !important;
+    border-bottom: 4px solid var(--gray);
+    border-top: 4px solid var(--gray);
+    cursor: pointer;
+}
+
+.frame-2 {
+    width: 330px;
+    height: 420px;
+    border-radius: 14px;
+    background-color: white;
+    box-shadow: 0 4px 4px 0 var(--light_shadow);
+}
+
+.frame-2 hr, .frame-1 hr {
+    border: 3px solid var(--soft_gray);
+}
+
+.reports-table {
+    text-align: center;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.reports-table td {
+    width: 13px;
+}
+
+.reports-table td+td {
+    width: 86px;
+}
+
+.desc {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 93px;
+}
+
+.table2-container {
+    width: 330px;
+    height: 338px;
+    border-radius: 0 0 14px 14px;
+}
+
+.table3-container {
+    width: 330px;
+    height: 359px;
+    border-radius: 0 0 14px 14px;
+}
+
+.unread {
+    background-color: var(--light_green);
+}
+
+.no-hover {
+    pointer-events: none;
+}
+
+.graph-container {
+    width: 609px;
+    height: 322px;
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}

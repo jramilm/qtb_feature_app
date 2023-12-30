@@ -1,3 +1,24 @@
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
+}
+
+function changeChevron(anchor) {
+  var icon = anchor.querySelector("i");
+  icon.classList.toggle('fa-chevron-down');
+  icon.classList.toggle('fa-chevron-up');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     var data = {
         labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
@@ -51,3 +72,15 @@ document.addEventListener('DOMContentLoaded', function() {
         options: options,
     });
 });
+
+function submitForm(event) {
+        event.preventDefault();
+
+        document.getElementById('search-form').submit();
+    }
+
+    const form = document.getElementById('search-form');
+    const submitIcon = document.getElementById('submit-icon');
+
+    // Add a mousedown event listener to the icon
+    submitIcon.addEventListener('mousedown', submitForm);
