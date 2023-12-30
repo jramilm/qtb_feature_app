@@ -1,4 +1,6 @@
+from django.http import JsonResponse
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from django.db.models import Q
 from .models import Employee, Task, Team, Report, Leaderboard
 
@@ -52,3 +54,20 @@ def team_list(request):
         'teams': team_data,
     }
     return render(request, 'pages/team_page.html', context)
+
+
+def get_report_details(request):
+    report_id = request.GET.get('report_id')
+    report = get_object_or_404(Report, pk=report_id)
+
+    sender_name = report.sender.name if report.sender else 'Unknown'
+    sender_email = report.sender.email if report.sender else 'Unknown'
+
+    data = {
+        'sender': sender_name,
+        'sender_email': sender_email,
+        'date': report.created_at.strftime('%Y-%m-%d %H:%M'),
+        'content': report.content,
+    }
+
+    return JsonResponse(data)

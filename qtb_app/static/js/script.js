@@ -74,13 +74,73 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function submitForm(event) {
-        event.preventDefault();
+    event.preventDefault();
 
-        document.getElementById('search-form').submit();
+    document.getElementById('search-form').submit();
+}
+
+const form = document.getElementById('search-form');
+const submitIcon = document.getElementById('submit-icon');
+
+submitIcon.addEventListener('mousedown', submitForm);
+
+function toggleReplyField() {
+    var replyField = document.getElementById("replyField");
+    var replyText = document.getElementById("replyText");
+
+    if (replyField.style.width === "458px") {
+        alert("Form submitted: " + replyField.value);
+
+        replyField.style.right = "10px";
+        replyField.style.width = "0px";
+        replyText.innerText = "Reply";
+        hideReport();
+
+        replyField.value = "";
+    } else {
+        replyField.style.right = "40px";
+        replyField.style.width = "458px";
+        replyText.innerText = "Submit";
     }
+}
 
-    const form = document.getElementById('search-form');
-    const submitIcon = document.getElementById('submit-icon');
+function displayReport(clickedRow) {
+    var popupFrame = document.getElementById("popupFrame");
+    var groupFrame = document.getElementById('groupFrame')
+    var groupFrame2 = document.getElementById('groupFrame2')
+    var reportId = clickedRow.getAttribute('data-report-id');
 
-    // Add a mousedown event listener to the icon
-    submitIcon.addEventListener('mousedown', submitForm);
+    $.ajax({
+        url: '/get_report_details/',  // Replace with your Django URL
+        method: 'GET',
+        data: { report_id: reportId },
+        success: function (data) {
+            document.querySelector('.details-header p:nth-child(1)').innerText = 'Sender: ' + data.sender;
+            document.querySelector('.details-header p:nth-child(2)').innerText = 'Date: ' + data.date;
+            document.querySelector('.mail-field p').innerText = data.content;
+        },
+        error: function (error) {
+            console.error('Error fetching report details:', error);
+        }
+    });
+
+    popupFrame.classList.remove('hidden');
+    groupFrame.classList.add('inactive');
+    groupFrame2.classList.add('inactive');
+}
+
+function hideReport() {
+    var popupFrame = document.getElementById("popupFrame");
+    var groupFrame = document.getElementById('groupFrame')
+    var groupFrame2 = document.getElementById('groupFrame2')
+    var replyField = document.getElementById("replyField");
+    var replyText = document.getElementById("replyText");
+
+    popupFrame.classList.add('hidden');
+    groupFrame.classList.remove('inactive');
+    groupFrame2.classList.remove('inactive');
+    replyField.style.right = "10px";
+    replyField.style.width = "0px";
+    replyText.innerText = "Reply";
+    replyField.value = "";
+}

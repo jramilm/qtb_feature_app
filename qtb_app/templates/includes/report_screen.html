@@ -1,0 +1,35 @@
+<div class="popup-frame">
+    <div class="details-header">
+        <p>Sender: Jose Ramil Malate (Team 1)</p>
+        <p>Date: 2020-5-23 24:00</p>
+    </div>
+    <div class="mail-field">
+        <p>"On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."</p>
+    </div>
+    <button class="reply-button" onclick="toggleReplyField()">
+        <p id="replyText">Reply</p>
+    </button>
+    <form action="" class="reply-form">
+        <input type="text" class="reply-field" id="replyField">
+    </form>
+</div>
+
+
+<script>
+ function toggleReplyField() {
+    var replyField = document.getElementById("replyField");
+    var replyText = document.getElementById("replyText");
+
+    if (replyField.style.width === "460px") {
+        alert("Form submitted: " + replyField.value);
+
+        replyField.style.right = "10px";
+        replyField.style.width = "0px";
+        replyText.innerText = "Reply";
+    } else {
+        replyField.style.right = "40px";
+        replyField.style.width = "460px";
+        replyText.innerText = "Submit";
+    }
+ }
+</script>

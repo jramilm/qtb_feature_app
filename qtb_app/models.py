@@ -1,6 +1,7 @@
 from django.db import models
 from phone_field import PhoneField
 
+
 # Create your models here.
 class BaseModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, db_index=True,)
@@ -19,7 +20,7 @@ class Employee(BaseModel):
     team_id = models.ForeignKey('Team', null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
 
 class Task(BaseModel):
@@ -27,7 +28,7 @@ class Task(BaseModel):
     description = models.TextField()
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
 
 class Team(BaseModel):
@@ -35,6 +36,9 @@ class Team(BaseModel):
     performance_rating = models.DecimalField(max_digits=5, decimal_places=2)
     compatibility_rating = models.DecimalField(max_digits=5, decimal_places=2)
     task = models.ForeignKey(Task, null=True, blank=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.id}'
 
 
 class Report(BaseModel):

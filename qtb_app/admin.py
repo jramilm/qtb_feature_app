@@ -34,12 +34,12 @@ class ReportsAdminForm(forms.ModelForm):
 
 class ReportAdmin(admin.ModelAdmin):
     form = ReportsAdminForm
-    list_display = ('team', 'sender', 'content', 'created_at')
-    search_fields =('team', 'sender', 'content',)
+    list_display = ('sender', 'content', 'created_at')
+    search_fields =('sender', 'content',)
 
 
 class LeaderboardAdmin(admin.ModelAdmin):
-    list_display = ('team', 'rank', 'year')
+    list_display = ('rank', 'year')
     search_fields = ('year', 'team')
 
 
