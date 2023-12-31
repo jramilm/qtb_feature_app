@@ -2,6 +2,10 @@
 {% load static %}
 
 {% block content %}
+    
+    <!-- Pagination -->
+    {% include 'includes/pagination.html' %}
+    
     <div class="button-container">
         <!-- Search Bar -->
         <form action="{% url 'teams-view' %}" class="search-form" id="search-form" method="GET">

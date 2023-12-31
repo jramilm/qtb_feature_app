@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
 from .models import Employee, Task, Team, Report, Leaderboard
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def view_items(request):
@@ -50,8 +51,18 @@ def team_list(request):
             'members': Employee.objects.filter(team_id=team.id),
         })
 
+        paginator = Paginator(team_data, 7)
+        page = request.GET.get('page')
+
+        try:
+            data_per_page = paginator.page(page)
+        except PageNotAnInteger:
+            data_per_page = paginator.page(1)
+        except EmptyPage:
+            data_per_page = paginator.page(paginator.num_pages)
+
     context = {
-        'teams': team_data,
+        'teams': data_per_page,
         'is_paginated': True,
     }
     return render(request, 'pages/team_page.html', context)

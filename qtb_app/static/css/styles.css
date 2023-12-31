@@ -524,3 +524,9 @@ input[type="text"]:focus {
     color: darkred;
     cursor: pointer;
 }
+
+.pagination {
+    position: absolute;
+    right: 100px;
+    top: 75px;
+}

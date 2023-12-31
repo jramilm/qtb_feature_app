@@ -12,21 +12,13 @@
                 </tr>
             </thead>
             <tbody class="no-hover">
+            {% for rank in leaderboards %}
                 <tr>
-                    <td style="width: 105px;">1</td>
-                    <td>95.0</td>
+                    <td style="width: 105px;">{{ rank.team.id }}</td>
+                    <td>{{ rank.team.performance_rating }}</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>5</td>
-                    <td>82.9</td>
-                    <td><i class="fa-solid fa-arrow-up"></i></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>78.9</td>
-                    <td><i class="fa-solid fa-arrow-down"></i></td>
-                </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>

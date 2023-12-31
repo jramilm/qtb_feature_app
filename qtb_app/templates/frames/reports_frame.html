@@ -5,18 +5,14 @@
     <hr />
     <div class="table2-container scrollable">
         <table class="reports-table">
-            <tr class='unread'>
+            {% for report in reports %}
+            <tr class="{{ report.is_read|yesno:'read,unread' }}" onclick="displayReport(this)" data-report-id="{{ report.id }}" id="report_{{ report.id }}">
                 <td><i class="fa-regular fa-envelope"></i></td>
-                <td class="desc">AAAAAAAAAAAAAAAA</td>
-                <td>Team 1</td>
-                <td>2:15 pm</td>
+                <td class="desc">{{ report.content }}</td>
+                <td>Team {{ report.team.id }}</td>
+                <td>{{ report.time }}</td>
             </tr>
-            <tr>
-                <td><i class="fa-regular fa-envelope-open"></i></td>
-                <td class="desc">BBBBBBBBBBBBBB</td>
-                <td>Team 1</td>
-                <td>10:15 pm</td>
-            </tr>
+            {% endfor %}
         </table>
     </div>
 </div>
