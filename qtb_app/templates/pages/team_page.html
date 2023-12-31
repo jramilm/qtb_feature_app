@@ -9,11 +9,13 @@
     <div class="button-container">
         <!-- Search Bar -->
         <form action="{% url 'teams-view' %}" class="search-form" id="search-form" method="GET">
+            {% csrf_token %}
             <input type="search" name="search" placeholder="Search" class="search-container"><i class="fa-solid fa-magnifying-glass" id="submit-icon"></i>
         </form>
 
         <!-- Refresh Button -->
         <form action="#" class="refresh-form" method="GET">
+            {% csrf_token %}
             <button type="submit" class="refresh-button"><i class="fa-solid fa-rotate-right fa-xl"></i></button>
         </form>
     </div>

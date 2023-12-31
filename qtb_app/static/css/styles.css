@@ -258,9 +258,8 @@ hr {
 
 .icon-wrapper {
     width: 230px;
-    height: 57px;
-    position: relative;
-    top: 30%;
+    position: fixed;
+    bottom: 24px;
     display: flex;
     justify-content: space-evenly;
 }

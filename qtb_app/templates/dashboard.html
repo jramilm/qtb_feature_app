@@ -2,35 +2,36 @@
 {% load static %}
 
 {% block content %}
-<div class="group-frame" id="groupFrame">
-<!-- TEAM BOARD -->
-    {% include 'frames/teams_frame.html' %}
-<!-- REPORTS BOARD -->
-    {% include 'frames/reports_frame.html' %}
-</div>
-    
-<div class="group-frame" id="groupFrame2">
-<!-- GRAPH BOARD -->
-    {% include 'frames/graph_frame.html' %}
-<!-- LEADERBOARD -->
-    {% include 'frames/rankings_frame.html' %}
-</div>
-    
-<div class="popup-frame center hidden" id="popupFrame">
-    <div class="details-header">
-        <p>Sender: Jose Ramil Malate (Team 1)</p>
-        <p>Date: 2020-5-23 24:00</p>
+    <div class="group-frame" id="groupFrame">
+    <!-- TEAM BOARD -->
+        {% include 'frames/teams_frame.html' %}
+    <!-- REPORTS BOARD -->
+        {% include 'frames/reports_frame.html' %}
     </div>
-    <i class="fa-solid fa-xmark" onclick="hideReport()"></i>
-    <div class="mail-field">
-        <p>"On the other hand, we denounce with"</p>
+
+    <div class="group-frame" id="groupFrame2">
+    <!-- GRAPH BOARD -->
+        {% include 'frames/graph_frame.html' %}
+    <!-- LEADERBOARD -->
+        {% include 'frames/rankings_frame.html' %}
     </div>
-    <button class="reply-button" onclick="toggleReplyField()">
-        <p id="replyText">Reply</p>
-    </button>
-    <form action="" class="reply-form">
-        <input type="text" class="reply-field" id="replyField">
-    </form>
-</div>
+
+    <!-- POPUP FRAME -->
+    <div class="popup-frame center hidden" id="popupFrame">
+        <div class="details-header">
+            <p>Sender: Jose Ramil Malate (Team 1)</p>
+            <p>Date: 2020-5-23 24:00</p>
+        </div>
+        <i class="fa-solid fa-xmark" onclick="hideReport()"></i>
+        <div class="mail-field">
+            <p>"On the other hand, we denounce with"</p>
+        </div>
+        <button class="reply-button" onclick="toggleReplyField()">
+            <p id="replyText">Reply</p>
+        </button>
+        <form action="" class="reply-form">
+            <input type="text" class="reply-field" id="replyField">
+        </form>
+    </div>
     
 {% endblock %}
