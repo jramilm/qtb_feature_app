@@ -258,7 +258,6 @@ hr {
 
 .icon-wrapper {
     width: 230px;
-    position: fixed;
     bottom: 24px;
     display: flex;
     justify-content: space-evenly;
@@ -528,4 +527,24 @@ input[type="text"]:focus {
     position: absolute;
     right: 100px;
     top: 75px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 62%;
+}
+
+.column p {
+    font-size: 12.6px;
+    text-align: center;
+    margin-top: 28px;
+}
+
+.main footer {
+    font-size: 14px;
+    position: relative;
+    left: 0%;
+    text-align: right;
 }
