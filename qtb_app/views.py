@@ -52,6 +52,7 @@ def team_list(request):
 
     context = {
         'teams': team_data,
+        'is_paginated': True,
     }
     return render(request, 'pages/team_page.html', context)
 
@@ -62,6 +63,9 @@ def get_report_details(request):
 
     sender_name = report.sender.name if report.sender else 'Unknown'
     sender_email = report.sender.email if report.sender else 'Unknown'
+
+    report.is_read = True
+    report.save()
 
     data = {
         'sender': sender_name,

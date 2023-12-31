@@ -111,13 +111,14 @@ function displayReport(clickedRow) {
     var reportId = clickedRow.getAttribute('data-report-id');
 
     $.ajax({
-        url: '/get_report_details/',  // Replace with your Django URL
+        url: 'get_report_details/',
         method: 'GET',
         data: { report_id: reportId },
         success: function (data) {
             document.querySelector('.details-header p:nth-child(1)').innerText = 'Sender: ' + data.sender;
             document.querySelector('.details-header p:nth-child(2)').innerText = 'Date: ' + data.date;
             document.querySelector('.mail-field p').innerText = data.content;
+            document.getElementById('report_' + reportId).classList.remove('unread')
         },
         error: function (error) {
             console.error('Error fetching report details:', error);

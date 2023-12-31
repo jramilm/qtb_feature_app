@@ -38,7 +38,7 @@
         <div class="table2-container scrollable">
             <table class="reports-table">
                 {% for report in reports %}
-                <tr class='unread' onclick="displayReport(this)" data-report-id="{{ report.id }}">
+                <tr class="{{ report.is_read|yesno:'read,unread' }}" onclick="displayReport(this)" data-report-id="{{ report.id }}" id="report_{{ report.id }}">
                     <td><i class="fa-regular fa-envelope"></i></td>
                     <td class="desc">{{ report.content }}</td>
                     <td>Team {{ report.team.id }}</td>

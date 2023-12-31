@@ -20,7 +20,7 @@ class Employee(BaseModel):
     team_id = models.ForeignKey('Team', null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.name}'
+        return f'{self.name} - Team {self.team_id.id}'
 
 
 class Task(BaseModel):
@@ -47,6 +47,9 @@ class Report(BaseModel):
     content = models.TextField()
     is_read = models.BooleanField()
     time = models.TimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Report {self.id} - Team: {self.team.id}'
 
 
 class Leaderboard(BaseModel):
