@@ -167,7 +167,7 @@ tbody tr:hover {
 }
 
 .sidebar-wrapper {
-    width: 260px;
+    width: 17%;
     height: 104%;
     background-color: var(--ocean);
     box-shadow: 3px 1px 4px 0 #606060;
@@ -178,8 +178,8 @@ tbody tr:hover {
 }
 
 .container {
-    width: 230px;
-    height: 438px;
+    width: 88%;
+    height: 100%;
     position: relative;
     left: 15px;
     top: 49px;
@@ -286,7 +286,7 @@ hr {
 }
 
 .team-crumb {
-    width: 1180px;
+    width: 82.3%;
     height: 72px;
     background-color: white;
     border: 1px solid var(--gray);
@@ -313,7 +313,7 @@ p > i {
 }
 
 .crumb-overlay {
-    width: 1180px;
+    width: 82.3%;
     height: 260px;
     max-height: 0;
     background-color: var(--white_overlay);
@@ -530,10 +530,8 @@ input[type="text"]:focus {
 }
 
 .column {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    top: 62%;
+    position: absolute;
+    bottom: 100px;
 }
 
 .column p {
